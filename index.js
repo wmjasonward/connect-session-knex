@@ -353,6 +353,31 @@ module.exports = function(connect) {
 		});
 	};
 
+	/*
+	* Manually force a dbCleanup to remove expired sessions
+	* from store.
+	*
+	*
+	* @api public
+	 */
+	KnexStore.prototype.dbCleanup = function () {
+		return dbCleanup(this, false);
+	}
+
+	/*
+	*	Changes the clearInterval
+	*	If the previous value is falsey and the new value is not,
+	*	calls dbCleanup
+	*
+	* Does not currently disable any active timeouts
+	*
+	* @api public
+	*/
+	//   TODO: if needed... KnexStore.prototype.setClearInterval()
+
+
+
+
 	return KnexStore;
 
 };
