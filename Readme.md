@@ -1,17 +1,8 @@
 # Connect Session Knex
 
-
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][npm-url]
-[![Node.js Version][node-image]][node-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][dependencies-image]][dependencies-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
-
-[![NPM][npm-image]][npm-url]
-
 connect-session-knex is an [express-session](https://github.com/expressjs/session) store backed by Postgres, MySQL, MariaDB or SQLite3, via the [knex.js](http://knexjs.org/) library.
 
+This form includes the ability to set clearInterval to false, or falsey value, in the config to disable automated the background dbCleanup process. dbCleanup can be called manually if desired.
 ## Installation
 
 ```sh
@@ -32,7 +23,7 @@ $ npm install connect-session-knex
  - `sidfieldname='sid'` Field name in table to use for storing session ids. Defaults to 'sid'.
  - `knex` knex instance to use. Defaults to a new knex instance, using sqlite3 with a file named 'connect-session-knex.sqlite'
  - `createtable` if the table for sessions should be created automatically or not.
- - `clearInterval` milliseconds between clearing expired sessions. Defaults to 60000.
+ - `clearInterval` millieconds between clearing expired sessions. Defaults to 60000. Set to false to disable background session clearing.
 
 If the table does not exist in the schema, this module will attempt to create it unless the 'createtable' option is false.
 

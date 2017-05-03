@@ -96,7 +96,9 @@ module.exports = function(connect) {
 			return store.knex(store.tablename).del()
 			.whereRaw(condition, dateAsISO(store.knex));
 		}).finally(function() {
-			setTimeout(dbCleanup, interval, store, interval).unref()
+			if (interval) {
+				setTimeout(dbCleanup, interval, store, interval).unref()
+			}
 		});
 	}
 
@@ -112,7 +114,7 @@ module.exports = function(connect) {
 		options = options || {};
 		Store.call(self, options);
 
-		if (!options.clearInterval) {
+		if (!('clearInterval' in options)) {
 			// Time to run clear expired function.
 			options.clearInterval =  60000;
 		}
@@ -144,7 +146,7 @@ module.exports = function(connect) {
 			return exists;
 		})
 		.then(function (exists) {
-			if (exists) {
+			if (exists && options.clearInterval) {
 				dbCleanup(self, options.clearInterval);
 			}
 			return null;
