@@ -11,12 +11,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:llambda/connect-session-knex.git"
+    "url": "git@github.com:wmjasonward/connect-session-knex.git"
   },
   "bugs": {
-    "url": "https://github.com/llambda/connect-session-knex/issues"
+    "url": "https://github.com/wmjasonward/connect-session-knex/issues"
   },
-  "homepage": "https://github.com/llambda/connect-session-knex",
+  "homepage": "https://github.com/wmjasonward/connect-session-knex",
   "scripts": {
     "test": "node test.js"
   },
