@@ -2,7 +2,7 @@
 
 connect-session-knex is an [express-session](https://github.com/expressjs/session) store backed by Postgres, MySQL, MariaDB or SQLite3, via the [knex.js](http://knexjs.org/) library.
 
-This form includes the ability to set clearInterval to false, or falsey value, in the config to disable automated the background dbCleanup process. dbCleanup can be called manually if desired.
+This fork includes the ability to set clearInterval to false, or falsey value, in the config to disable the automated background dbCleanup process. dbCleanup can be called manually if desired.
 ## Installation
 
 ```sh
